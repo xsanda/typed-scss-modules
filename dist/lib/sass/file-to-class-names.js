@@ -6,6 +6,8 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var node_sass_1 = __importDefault(require("node-sass"));
 var camelcase_1 = __importDefault(require("camelcase"));
 var param_case_1 = __importDefault(require("param-case"));
+var fs_1 = __importDefault(require("fs"));
+var app_root_path_1 = require("app-root-path");
 var source_to_class_names_1 = require("./source-to-class-names");
 exports.NAME_FORMATS = [
     "camel",
@@ -16,9 +18,7 @@ exports.NAME_FORMATS = [
 ];
 var importer = function (aliases, aliasPrefixes) { return function (url) {
     if (url in aliases) {
-        return {
-            file: aliases[url]
-        };
+        return { file: aliases[url] };
     }
     var prefixMatch = Object.keys(aliasPrefixes).find(function (prefix) {
         return url.startsWith(prefix);
@@ -28,7 +28,7 @@ var importer = function (aliases, aliasPrefixes) { return function (url) {
             file: aliasPrefixes[prefixMatch] + url.substr(prefixMatch.length)
         };
     }
-    return null;
+    return { file: fs_1.default.existsSync(url) ? url : app_root_path_1.resolve(url) };
 }; };
 exports.fileToClassNames = function (file, _a) {
     var _b = _a === void 0 ? {} : _a, _c = _b.includePaths, includePaths = _c === void 0 ? [] : _c, _d = _b.aliases, aliases = _d === void 0 ? {} : _d, _e = _b.aliasPrefixes, aliasPrefixes = _e === void 0 ? {} : _e, _f = _b.nameFormat, nameFormat = _f === void 0 ? "camel" : _f;

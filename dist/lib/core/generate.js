@@ -63,7 +63,7 @@ exports.generate = function (pattern, options) { return __awaiter(_this, void 0,
                 if (files.length === 1) {
                     alerts_1.alerts.warn("Only 1 file found for " + pattern + ". If using a glob pattern (eg: dir/**/*.scss) make sure to wrap in quotes (eg: \"dir/**/*.scss\").");
                 }
-                alerts_1.alerts.success("Found " + files.length + " files. Generating type defintions...");
+                alerts_1.alerts.success("Found " + files.length + " files. Generating type definitions...");
                 // Wait for all the type definitions to be written.
                 return [4 /*yield*/, Promise.all(files.map(function (file) { return write_file_1.writeFile(file, options); }))];
             case 1:
