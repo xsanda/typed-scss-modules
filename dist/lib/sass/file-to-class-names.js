@@ -28,7 +28,11 @@ var importer = function (aliases, aliasPrefixes) { return function (url) {
             file: aliasPrefixes[prefixMatch] + url.substr(prefixMatch.length)
         };
     }
-    return { file: fs_1.default.existsSync(url) ? url : app_root_path_1.resolve(url) };
+    var files = [url, url + ".scss", app_root_path_1.resolve(url), app_root_path_1.resolve(url) + ".scss"];
+    var file = files.find(fs_1.default.existsSync);
+    if (file)
+        return { file: file };
+    return null;
 }; };
 exports.fileToClassNames = function (file, _a) {
     var _b = _a === void 0 ? {} : _a, _c = _b.includePaths, includePaths = _c === void 0 ? [] : _c, _d = _b.aliases, aliases = _d === void 0 ? {} : _d, _e = _b.aliasPrefixes, aliasPrefixes = _e === void 0 ? {} : _e, _f = _b.nameFormat, nameFormat = _f === void 0 ? "camel" : _f;

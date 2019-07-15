@@ -46,7 +46,11 @@ const importer = (aliases: Aliases, aliasPrefixes: Aliases) => (
     };
   }
 
-  return { file: fs.existsSync(url) ? url : resolve(url) };
+  const files = [url, `${url}.scss`, resolve(url), `${resolve(url)}.scss`];
+
+  const file = files.find(fs.existsSync);
+  if (file) return { file };
+  return null;
 };
 
 export const fileToClassNames = (
