@@ -6,6 +6,8 @@ Generate TypeScript definitions (`.d.ts`) files for CSS Modules that are written
 
 **This fork is for React Native, and so it marks the types as style props rather than strings.**
 
+The original package was made by was [Spencer Miskoviak](https://github.com/skovy/typed-scss-modules).
+
 For example, given the following SCSS:
 
 ```scss
@@ -30,23 +32,8 @@ export const textHighlighted: StyleProp<any>;
 
 ## Basic Usage
 
-Run with npm package runner:
-
 ```bash
-npx tsm src
-```
-
-Or, install globally:
-
-```bash
-yarn global add typed-scss-modules
-tsm src
-```
-
-Or, install and run as a `devDependency`:
-
-```bash
-yarn add -D typed-scss-modules
+yarn add -D typed-scss-modules@xsanda/typed-scss-modules
 yarn tsm src
 ```
 
