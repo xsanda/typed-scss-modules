@@ -1,6 +1,8 @@
 import sass from "node-sass";
 import camelcase from "camelcase";
 import paramcase from "param-case";
+import fs from "fs";
+import { resolve } from "app-root-path";
 
 import { sourceToClassNames } from "./source-to-class-names";
 
@@ -32,9 +34,7 @@ const importer = (aliases: Aliases, aliasPrefixes: Aliases) => (
   url: string
 ) => {
   if (url in aliases) {
-    return {
-      file: aliases[url]
-    };
+    return { file: aliases[url] };
   }
 
   const prefixMatch = Object.keys(aliasPrefixes).find(prefix =>
@@ -46,7 +46,7 @@ const importer = (aliases: Aliases, aliasPrefixes: Aliases) => (
     };
   }
 
-  return null;
+  return { file: fs.existsSync(url) ? url : resolve(url) };
 };
 
 export const fileToClassNames = (

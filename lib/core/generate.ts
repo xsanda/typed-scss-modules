@@ -14,7 +14,7 @@ export const generate = async (
   pattern: string,
   options: MainOptions
 ): Promise<void> => {
-  // Find all the files that match the provied pattern.
+  // Find all the files that match the provided pattern.
   const files = glob.sync(pattern);
 
   if (!files || !files.length) {
@@ -30,7 +30,7 @@ export const generate = async (
     );
   }
 
-  alerts.success(`Found ${files.length} files. Generating type defintions...`);
+  alerts.success(`Found ${files.length} files. Generating type definitions...`);
 
   // Wait for all the type definitions to be written.
   await Promise.all(files.map(file => writeFile(file, options)));
