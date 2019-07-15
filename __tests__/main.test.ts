@@ -22,11 +22,11 @@ describe("main", () => {
 
     expect(fs.writeFileSync).toBeCalledWith(
       `${__dirname}/complex.scss.d.ts`,
-      "export const someStyles: string;\nexport const nestedClass: string;\nexport const nestedAnother: string;\n"
+      "import { StyleProp } from 'react-native';\n\nexport const someStyles: StyleProp<any>;\nexport const nestedClass: StyleProp<any>;\nexport const nestedAnother: StyleProp<any>;\n"
     );
     expect(fs.writeFileSync).toBeCalledWith(
       `${__dirname}/style.scss.d.ts`,
-      "export const someClass: string;\n"
+      "import { StyleProp } from 'react-native';\n\nexport const someClass: StyleProp<any>;\n"
     );
   });
 });

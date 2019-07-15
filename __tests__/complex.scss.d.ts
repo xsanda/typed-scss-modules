@@ -1,3 +1,5 @@
-export const someStyles: string;
-export const nestedClass: string;
-export const nestedAnother: string;
+import { StyleProp } from "react-native";
+
+export const someStyles: StyleProp<any>;
+export const nestedClass: StyleProp<any>;
+export const nestedAnother: StyleProp<any>;

@@ -1,1 +1,3 @@
-export const someClass: string;
+import { StyleProp } from "react-native";
+
+export const someClass: StyleProp<any>;

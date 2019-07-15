@@ -13,7 +13,7 @@ describe("classNamesToTypeDefinitions", () => {
       );
 
       expect(definition).toEqual(
-        "export const myClass: string;\nexport const yourClass: string;\n"
+        "import { StyleProp } from 'react-native';\n\nexport const myClass: StyleProp<any>;\nexport const yourClass: StyleProp<any>;\n"
       );
     });
 
@@ -29,7 +29,9 @@ describe("classNamesToTypeDefinitions", () => {
         "named"
       );
 
-      expect(definition).toEqual("export const myClass: string;\n");
+      expect(definition).toEqual(
+        "import { StyleProp } from 'react-native';\n\nexport const myClass: StyleProp<any>;\n"
+      );
       expect(console.log).toBeCalledWith(
         expect.stringContaining(`[SKIPPING] 'if' is a reserved keyword`)
       );
@@ -41,7 +43,9 @@ describe("classNamesToTypeDefinitions", () => {
         "named"
       );
 
-      expect(definition).toEqual("export const myClass: string;\n");
+      expect(definition).toEqual(
+        "import { StyleProp } from 'react-native';\n\nexport const myClass: StyleProp<any>;\n"
+      );
       expect(console.log).toBeCalledWith(
         expect.stringContaining(`[SKIPPING] 'invalid-variable' contains dashes`)
       );
@@ -56,7 +60,7 @@ describe("classNamesToTypeDefinitions", () => {
       );
 
       expect(definition).toEqual(
-        "export interface Styles {\n  'myClass': string;\n  'yourClass': string;\n}\n\nexport type ClassNames = keyof Styles;\n\ndeclare const styles: Styles;\n\nexport default styles;\n"
+        "import { StyleProp } from 'react-native';\n\nexport interface Styles {\n  'myClass': StyleProp<any>;\n  'yourClass': StyleProp<any>;\n}\n\nexport type ClassNames = keyof Styles;\n\ndeclare const styles: Styles;\n\nexport default styles;\n"
       );
     });
 

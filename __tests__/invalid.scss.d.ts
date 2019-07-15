@@ -1,1 +1,3 @@
-export const nope: string;
+import { StyleProp } from "react-native";
+
+export const randomClass: StyleProp<any>;

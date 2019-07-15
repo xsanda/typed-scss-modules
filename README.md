@@ -1,11 +1,10 @@
 # 🎁 typed-scss-modules
 
-[![Build Status](https://travis-ci.com/skovy/typed-scss-modules.svg?branch=master)](https://travis-ci.com/skovy/typed-scss-modules)
-[![npm version](https://img.shields.io/npm/v/typed-scss-modules.svg?style=flat)](https://www.npmjs.com/package/typed-scss-modules)
+[![Build Status](https://travis-ci.com/xsanda/typed-scss-modules.svg?branch=master)](https://travis-ci.com/xsanda/typed-scss-modules)
 
 Generate TypeScript definitions (`.d.ts`) files for CSS Modules that are written in SCSS (`.scss`). Check out [this post to learn more](https://medium.com/rubber-ducking/generating-typescript-definitions-for-css-modules-using-sass-461e33623ec2?source=friends_link&sk=5de22cc877744ebd8ad55d8dcc1a0894) about the rationale and inspiration behind this package.
 
-![Example](/docs/typed-scss-modules-example.gif)
+**This fork is for React Native, and so it marks the types as style props rather than strings.**
 
 For example, given the following SCSS:
 
@@ -24,8 +23,9 @@ For example, given the following SCSS:
 The following type definitions will be generated:
 
 ```typescript
-export const text: string;
-export const textHighlighted: string;
+import { StyleProp } from "react-native";
+export const text: StyleProp<any>;
+export const textHighlighted: StyleProp<any>;
 ```
 
 ## Basic Usage
@@ -54,7 +54,7 @@ yarn tsm src
 
 For all possible commands, run `tsm --help`.
 
-The only required argument is the directoy where all SCSS files are located. Running `tsm src` will search for all files matching `src/**/*.scss`. This can be overridden by providing a [glob](https://github.com/isaacs/node-glob#glob-primer) pattern instead of a directory. For example, `tsm src/*.scss`
+The only required argument is the directory where all SCSS files are located. Running `tsm src` will search for all files matching `src/**/*.scss`. This can be overridden by providing a [glob](https://github.com/isaacs/node-glob#glob-primer) pattern instead of a directory. For example, `tsm src/*.scss`
 
 ### `--watch` (`-w`)
 
@@ -136,8 +136,10 @@ Given the following SCSS:
 The following type definitions will be generated:
 
 ```typescript
-export const text: string;
-export const textHighlighted: string;
+import { StyleProp } from "react-native";
+
+export const text: StyleProp<any>;
+export const textHighlighted: StyleProp<any>;
 ```
 
 #### `default`
@@ -157,9 +159,11 @@ Given the following SCSS:
 The following type definitions will be generated:
 
 ```typescript
+import { StyleProp } from "react-native";
+
 export interface Styles {
-  text: string;
-  textHighlighted: string;
+  text: StyleProp<any>;
+  textHighlighted: StyleProp<any>;
 }
 
 export type ClassNames = keyof Styles;
