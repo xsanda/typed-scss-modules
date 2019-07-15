@@ -5,7 +5,7 @@ import { alerts } from "../core";
 
 export type ExportType = "named" | "default";
 export const EXPORT_TYPES: ExportType[] = ["named", "default"];
-export const REACT_NATIVE_IMPORT = `import { StyleProp } from 'react-native';`;
+export const REACT_NATIVE_IMPORT = `import { StyleProp } from "react-native";`;
 export const REACT_NATIVE_TYPE = `StyleProp<any>`;
 
 const classNameToNamedTypeDefinition = (className: ClassName) =>

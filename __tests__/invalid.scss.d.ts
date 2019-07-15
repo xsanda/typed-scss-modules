@@ -1,3 +1,3 @@
 import { StyleProp } from "react-native";
 
-export const randomClass: StyleProp<any>;
+export const nope: StyleProp<any>;

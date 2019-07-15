@@ -22,7 +22,7 @@ describe("writeFile", () => {
 
     expect(fs.writeFileSync).toBeCalledWith(
       typesFile,
-      "import { StyleProp } from 'react-native';\n\nexport const someClass: StyleProp<any>;\n"
+      'import { StyleProp } from "react-native";\n\nexport const someClass: StyleProp<any>;\n'
     );
 
     expect(console.log).toBeCalledWith(

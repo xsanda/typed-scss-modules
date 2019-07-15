@@ -32,6 +32,7 @@ describe("writeFile", () => {
     expect(console.log).toBeCalledWith(
       expect.stringContaining(`[INVALID TYPES] Check type definitions for`)
     );
+    expect(console.log).toBeCalledWith(expect.stringContaining(`invalid.scss`));
   });
 
   test("logs nothing and does not exit if all files are valid", async () => {
