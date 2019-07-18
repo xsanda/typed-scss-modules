@@ -6,7 +6,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var reserved_words_1 = __importDefault(require("reserved-words"));
 var core_1 = require("../core");
 exports.EXPORT_TYPES = ["named", "default"];
-exports.REACT_NATIVE_IMPORT = "import { StyleProp } from \"react-native\";";
+exports.REACT_NATIVE_IMPORT = "import { StyleProp } from 'react-native';";
 exports.REACT_NATIVE_TYPE = "StyleProp<any>";
 var classNameToNamedTypeDefinition = function (className) {
     return "export const " + className + ": " + exports.REACT_NATIVE_TYPE + ";";

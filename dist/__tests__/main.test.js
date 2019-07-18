@@ -61,8 +61,8 @@ describe("main", function () {
                 case 1:
                     _a.sent();
                     expect(fs_1.default.writeFileSync).toBeCalledTimes(5);
-                    expect(fs_1.default.writeFileSync).toBeCalledWith(__dirname + "/complex.scss.d.ts", 'import { StyleProp } from "react-native";\n\nexport const someStyles: StyleProp<any>;\nexport const nestedClass: StyleProp<any>;\nexport const nestedAnother: StyleProp<any>;\n');
-                    expect(fs_1.default.writeFileSync).toBeCalledWith(__dirname + "/style.scss.d.ts", 'import { StyleProp } from "react-native";\n\nexport const someClass: StyleProp<any>;\n');
+                    expect(fs_1.default.writeFileSync).toBeCalledWith(__dirname + "/complex.scss.d.ts", "import { StyleProp } from 'react-native';\n\nexport const someStyles: StyleProp<any>;\nexport const nestedClass: StyleProp<any>;\nexport const nestedAnother: StyleProp<any>;\n");
+                    expect(fs_1.default.writeFileSync).toBeCalledWith(__dirname + "/style.scss.d.ts", "import { StyleProp } from 'react-native';\n\nexport const someClass: StyleProp<any>;\n");
                     return [2 /*return*/];
             }
         });

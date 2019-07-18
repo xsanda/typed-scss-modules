@@ -62,7 +62,7 @@ describe("writeFile", function () {
                         })];
                 case 1:
                     _a.sent();
-                    expect(fs_1.default.writeFileSync).toBeCalledWith(typesFile, 'import { StyleProp } from "react-native";\n\nexport const someClass: StyleProp<any>;\n');
+                    expect(fs_1.default.writeFileSync).toBeCalledWith(typesFile, "import { StyleProp } from 'react-native';\n\nexport const someClass: StyleProp<any>;\n");
                     expect(console.log).toBeCalledWith(expect.stringContaining("[GENERATED TYPES] " + typesFile));
                     return [2 /*return*/];
             }

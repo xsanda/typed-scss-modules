@@ -8,7 +8,7 @@ describe("classNamesToTypeDefinitions", function () {
     describe("named", function () {
         it("converts an array of class name strings to type definitions", function () {
             var definition = typescript_1.classNamesToTypeDefinitions(["myClass", "yourClass"], "named");
-            expect(definition).toEqual('import { StyleProp } from "react-native";\n\nexport const myClass: StyleProp<any>;\nexport const yourClass: StyleProp<any>;\n');
+            expect(definition).toEqual("import { StyleProp } from 'react-native';\n\nexport const myClass: StyleProp<any>;\nexport const yourClass: StyleProp<any>;\n");
         });
         it("returns null if there are no class names", function () {
             var definition = typescript_1.classNamesToTypeDefinitions([], "named");
@@ -16,12 +16,12 @@ describe("classNamesToTypeDefinitions", function () {
         });
         it("prints a warning if a classname is a reserved keyword and does not include it in the type definitions", function () {
             var definition = typescript_1.classNamesToTypeDefinitions(["myClass", "if"], "named");
-            expect(definition).toEqual('import { StyleProp } from "react-native";\n\nexport const myClass: StyleProp<any>;\n');
+            expect(definition).toEqual("import { StyleProp } from 'react-native';\n\nexport const myClass: StyleProp<any>;\n");
             expect(console.log).toBeCalledWith(expect.stringContaining("[SKIPPING] 'if' is a reserved keyword"));
         });
         it("prints a warning if a classname is invalid and does not include it in the type definitions", function () {
             var definition = typescript_1.classNamesToTypeDefinitions(["myClass", "invalid-variable"], "named");
-            expect(definition).toEqual('import { StyleProp } from "react-native";\n\nexport const myClass: StyleProp<any>;\n');
+            expect(definition).toEqual("import { StyleProp } from 'react-native';\n\nexport const myClass: StyleProp<any>;\n");
             expect(console.log).toBeCalledWith(expect.stringContaining("[SKIPPING] 'invalid-variable' contains dashes"));
         });
     });
