@@ -1,4 +1,4 @@
-import { StyleProp } from "react-native";
+import { StyleProp } from 'react-native';
 
 export const app: StyleProp<any>;
 export const logo: StyleProp<any>;

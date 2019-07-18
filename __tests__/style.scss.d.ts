@@ -1,3 +1,3 @@
-import { StyleProp } from "react-native";
+import { StyleProp } from 'react-native';
 
 export const someClass: StyleProp<any>;

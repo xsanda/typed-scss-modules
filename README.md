@@ -11,7 +11,7 @@ The original package was made by was [Spencer Miskoviak](https://github.com/skov
 For example, given the following SCSS:
 
 ```scss
-@import "variables";
+@import 'variables';
 
 .text {
   color: $blue;
@@ -25,7 +25,7 @@ For example, given the following SCSS:
 The following type definitions will be generated:
 
 ```typescript
-import { StyleProp } from "react-native";
+import { StyleProp } from 'react-native';
 export const text: StyleProp<any>;
 export const textHighlighted: StyleProp<any>;
 ```
@@ -123,7 +123,7 @@ Given the following SCSS:
 The following type definitions will be generated:
 
 ```typescript
-import { StyleProp } from "react-native";
+import { StyleProp } from 'react-native';
 
 export const text: StyleProp<any>;
 export const textHighlighted: StyleProp<any>;
@@ -146,7 +146,7 @@ Given the following SCSS:
 The following type definitions will be generated:
 
 ```typescript
-import { StyleProp } from "react-native";
+import { StyleProp } from 'react-native';
 
 export interface Styles {
   text: StyleProp<any>;
