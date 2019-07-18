@@ -1,15 +1,15 @@
-import { classNamesToTypeDefinitions, ExportType } from "../../lib/typescript";
+import { classNamesToTypeDefinitions, ExportType } from '../../lib/typescript';
 
-describe("classNamesToTypeDefinitions", () => {
+describe('classNamesToTypeDefinitions', () => {
   beforeEach(() => {
     console.log = jest.fn();
   });
 
-  describe("named", () => {
-    it("converts an array of class name strings to type definitions", () => {
+  describe('named', () => {
+    it('converts an array of class name strings to type definitions', () => {
       const definition = classNamesToTypeDefinitions(
-        ["myClass", "yourClass"],
-        "named"
+        ['myClass', 'yourClass'],
+        'named'
       );
 
       expect(definition).toEqual(
@@ -17,16 +17,16 @@ describe("classNamesToTypeDefinitions", () => {
       );
     });
 
-    it("returns null if there are no class names", () => {
-      const definition = classNamesToTypeDefinitions([], "named");
+    it('returns null if there are no class names', () => {
+      const definition = classNamesToTypeDefinitions([], 'named');
 
       expect(definition).toBeNull;
     });
 
-    it("prints a warning if a classname is a reserved keyword and does not include it in the type definitions", () => {
+    it('prints a warning if a classname is a reserved keyword and does not include it in the type definitions', () => {
       const definition = classNamesToTypeDefinitions(
-        ["myClass", "if"],
-        "named"
+        ['myClass', 'if'],
+        'named'
       );
 
       expect(definition).toEqual(
@@ -37,10 +37,10 @@ describe("classNamesToTypeDefinitions", () => {
       );
     });
 
-    it("prints a warning if a classname is invalid and does not include it in the type definitions", () => {
+    it('prints a warning if a classname is invalid and does not include it in the type definitions', () => {
       const definition = classNamesToTypeDefinitions(
-        ["myClass", "invalid-variable"],
-        "named"
+        ['myClass', 'invalid-variable'],
+        'named'
       );
 
       expect(definition).toEqual(
@@ -52,30 +52,30 @@ describe("classNamesToTypeDefinitions", () => {
     });
   });
 
-  describe("default", () => {
-    it("converts an array of class name strings to type definitions", () => {
+  describe('default', () => {
+    it('converts an array of class name strings to type definitions', () => {
       const definition = classNamesToTypeDefinitions(
-        ["myClass", "yourClass"],
-        "default"
+        ['myClass', 'yourClass'],
+        'default'
       );
 
       expect(definition).toEqual(
-        "import { StyleProp } from \"react-native\";\n\nexport interface Styles {\n  'myClass': StyleProp<any>;\n  'yourClass': StyleProp<any>;\n}\n\nexport type ClassNames = keyof Styles;\n\ndeclare const styles: Styles;\n\nexport default styles;\n"
+        "import { StyleProp } from 'react-native';\n\nexport interface Styles {\n  'myClass': StyleProp<any>;\n  'yourClass': StyleProp<any>;\n}\n\nexport type ClassNames = keyof Styles;\n\ndeclare const styles: Styles;\n\nexport default styles;\n"
       );
     });
 
-    it("returns null if there are no class names", () => {
-      const definition = classNamesToTypeDefinitions([], "default");
+    it('returns null if there are no class names', () => {
+      const definition = classNamesToTypeDefinitions([], 'default');
 
       expect(definition).toBeNull;
     });
   });
 
-  describe("invalid export type", () => {
-    it("returns null", () => {
+  describe('invalid export type', () => {
+    it('returns null', () => {
       const definition = classNamesToTypeDefinitions(
-        ["myClass"],
-        "invalid" as ExportType
+        ['myClass'],
+        'invalid' as ExportType
       );
 
       expect(definition).toBeNull;
